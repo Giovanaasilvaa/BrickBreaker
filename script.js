@@ -2,8 +2,8 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("startButton");
 
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = Math.min(window.innerWidth * 0.9, 800);
+canvas.height = canvas.width * 0.75; 
 
 const paddleHeight = 10;
 const paddleWidth = 100;
