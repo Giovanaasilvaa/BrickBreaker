@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("startButton");
 
 canvas.width = Math.min(window.innerWidth * 0.9, 800);
-canvas.height = canvas.width * 0.75; 
+canvas.height = canvas.width * 0.75;
 
 const paddleHeight = 10;
 const paddleWidth = 100;
@@ -29,10 +29,23 @@ let gamePaused = false;
 
 let gameRunning = false;
 
+let backgroundMusic = new Audio("fundo.mp3");
+backgroundMusic.loop = true; 
+backgroundMusic.volume = 0.10;
+
+let brickHitSound = new Audio("bolinha.mp3");
+
+function playBrickHitSound() {
+    if (brickHitSound.paused || brickHitSound.ended) {
+        brickHitSound.currentTime = 0; 
+        brickHitSound.play();
+    }
+}
+
 document.addEventListener("keydown", (e) => {
     if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
     if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
-    if (e.key === "Escape") togglePause();
+    if (e.key === "Escape") togglePause(); 
 });
 
 document.addEventListener("keyup", (e) => {
@@ -64,28 +77,33 @@ function startGame() {
     initializeGame();
     gameRunning = true;
     gamePaused = false;
+    backgroundMusic.play(); 
     gameLoop();
 }
 
 function togglePause() {
     if (gameRunning) {
         gamePaused = !gamePaused;
-        if (!gamePaused) {
+        if (gamePaused) {
+            backgroundMusic.pause(); 
+        } else {
+            backgroundMusic.play(); 
             gameLoop();
         }
     }
 }
 
 function drawPauseMessage() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.7)"; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
 
-    ctx.font = "30px Arial";
+    const fontSize = canvas.width / 15; 
+    ctx.font = `${fontSize}px Arial`;
     ctx.fillStyle = "#fff";
     ctx.textAlign = "center";
     ctx.fillText("JOGO PAUSADO", canvas.width / 2, canvas.height / 2);
-    ctx.font = "20px Arial";
-    ctx.fillText("Aperte ESC pra continuar", canvas.width / 2, canvas.height / 2 + 40);
+    ctx.font = `${fontSize / 1.5}px Arial`;
+    ctx.fillText("Aperte ESC pra continuar", canvas.width / 2, canvas.height / 2 + fontSize + 10);
 }
 
 function drawBall() {
@@ -128,6 +146,7 @@ function drawBricks() {
         startButton.style.display = "block";
         startButton.textContent = "Jogar Novamente";
         canvas.style.display = "none";
+        backgroundMusic.pause(); 
     }
 }
 
@@ -144,6 +163,7 @@ function collisionDetection() {
                 ) {
                     ballDY = -ballDY;
                     brick.status = 0;
+                    playBrickHitSound(); 
                 }
             }
         }
@@ -180,6 +200,10 @@ function draw() {
     drawBricks();
     drawBall();
     drawPaddle();
+
+    if (gamePaused) {
+        drawPauseMessage(); 
+    }
 }
 
 function gameLoop() {
@@ -187,6 +211,9 @@ function gameLoop() {
         update();
         draw();
         requestAnimationFrame(gameLoop);
+    } else if (gamePaused) {
+        draw();
+        drawPauseMessage();
     }
 }
 
@@ -195,4 +222,10 @@ function gameOver() {
     startButton.textContent = "Jogar Novamente";
     startButton.style.display = "block";
     canvas.style.display = "none";
+    backgroundMusic.pause(); 
 }
+
+window.addEventListener("resize", () => {
+    canvas.width = Math.min(window.innerWidth * 0.95, 800);
+    canvas.height = canvas.width * 0.7;
+});
