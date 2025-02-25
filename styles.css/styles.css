@@ -15,7 +15,6 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
-
 #coinCount {
     font-size: 15px;
     color: #fff;
@@ -100,7 +99,7 @@ body {
 #nome {
     position: absolute;
     bottom: 10px; 
-    font-size: 15px; 
+    font-size: 10px; 
     color: #feecec;
     text-align: center;
     width: 100%;
