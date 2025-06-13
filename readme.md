@@ -1,20 +1,85 @@
-## 🎮 Brick Breaker 
-Este é um **jogo Brick Breaker simples** desenvolvido com HTML, CSS e JavaScript. O projeto foi criado de forma independente, inspirado nos clássicos jogos de quebra de blocos.
+<h1 align="center">🧱 BRICK BREAKER - HTML, CSS & JS</h1>
 
-## 🛠️ Funcionalidades
-1. **Movimentação do Paddle:** Use as teclas de seta ← e → para mover o paddle (barra) e evitar que a bola caia.
-2. **Quebra de Tijolos:** O objetivo é destruir todos os tijolos da tela com a bola.
-3. **Pausar o Jogo:** Aperte a tecla Esc para pausar e retomar o jogo a qualquer momento.
-4. **Reinício de Jogo:** Ao perder, você pode clicar em "Jogar Novamente" para reiniciar a partida.
-5. **Tutorial Inicial:** Ao iniciar o jogo, um tutorial breve informa como jogar, incluindo como mover o paddle e como pausar.
+<p align="center"><em>Reviva o clássico jogo de quebrar blocos – direto no navegador, simples e viciante</em></p>
 
-## 🧑‍💻 Tecnologias Utilizadas
-1. **HTML:** Estruturação da página e do jogo com a utilização de um elemento canvas para desenhar a interface.
-2. **CSS:** Estilização simples para o layout do jogo, incluindo o botão de iniciar e o canvas.
-3. **JavaScript:** Implementação da lógica do jogo, como movimentação do paddle, física da bola, colisões com os tijolos e controle de pausa.
+<p align="center">
+  <img src="https://img.shields.io/badge/último%20commit-junho-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/javascript-100%25-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/tecnologias-3-blue?style=flat-square" />
+</p>
+
+<h3 align="center">Tecnologias e ferramentas utilizadas:</h3>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+</p>
+
+---
+
+## 🎮 Sobre o Projeto
+
+O **Brick Breaker** é uma versão web do clássico jogo de quebra de blocos, desenvolvida com **HTML, CSS e JavaScript puro**, sem bibliotecas externas. O objetivo é destruir todos os tijolos da tela usando uma bola que quica, sem deixar que ela caia.
+
+O projeto foi criado de forma independente com fins educacionais e recreativos, focando em conceitos como **manipulação de canvas, detecção de colisão, controle de eventos via teclado e lógica de jogo em JS**.
+
+---
+
+## 🧠 Funcionalidades
+
+✅ **Movimentação do Paddle** com as teclas ← e →  
+✅ **Quebra de tijolos** com colisões precisas  
+✅ **Pausa do jogo** com a tecla `Esc`  
+✅ **Reinício automático** com botão “Jogar Novamente”  
+✅ **Tutorial inicial** explicando os controles antes de começar  
+
+---
 
 ## 🕹️ Como Jogar
-**Movimentação do Paddle:**
- - Use as teclas ← e → para mover o paddle de um lado para o outro e evitar que a bola caia.
-**Destruir os Tijolos:**
- - A bola vai quicar nos tijolos e destruí-los. O objetivo é quebrar todos os tijolos da tela para vencer.
+
+- **Mover o Paddle:** Use as teclas **←** e **→** para impedir que a bola caia.
+- **Objetivo:** A bola rebaterá nos tijolos e os destruirá. Elimine todos para vencer.
+- **Pausar/Retomar:** Pressione **Esc** a qualquer momento para pausar ou continuar.
+- **Reiniciar:** Após perder, clique em **Jogar Novamente** para uma nova tentativa.
+
+---
+
+## 📂 Estrutura do Projeto
+<pre>📦 brick-breaker/
+│
+├── 📁 assets/                # Arquivos estáticos (mídia e estilos)
+│   ├── 📁 images/            # Todas as imagens do jogo
+│   │   └── bolinhaprincipal.png, paddle.png, etc.
+│   ├── 📁 sounds/            # Efeitos sonoros e música
+│   │   └── bolinha.mp3, fundo.mp3, etc.
+│   └── 📁 styles/            # Estilos CSS
+│       └── style.css
+│
+├── 📁 js/                    # Scripts JS (futuramente separado por módulos, se quiser escalar)
+│   └── script.js
+│
+├── index.html               # Página principal
+└── README.md                # Documentação do projeto
+</pre>
+
+---
+
+## 🌐 Como Executar
+
+1. **Faça o clone do repositório:**
+```bash
+git clone https://github.com/seu-usuario/brick-breaker.git
+```
+
+2. **Abra o arquivo index.html no navegador.**
+
+<h2>📦 Versão</h2>
+<p>1.0.0</p>
+
+<h2>📄 Licença</h2>
+<p>Esse projeto está sob a licença MIT.</p>
+
+## Contato ##
+Giovana Marques Silva <br>
+giovanamarquessilva24@gmail.com
